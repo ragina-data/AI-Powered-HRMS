@@ -1,0 +1,151 @@
+
+AI-Powered-HRMS/
+│
+├── app/
+│   │
+│   ├── main.py
+│   │
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── dependencies.py
+│   │   ├── auth.py
+│   │   ├── employees.py
+│   │   ├── departments.py
+│   │   ├── leave.py
+│   │   ├── documents.py
+│   │   ├── timesheets.py
+│   │   ├── chat.py
+│   │   └── health.py
+│   │
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── security.py
+│   │   ├── permissions.py
+│   │   ├── exceptions.py
+│   │   └── logging.py
+│   │
+│   ├── db/
+│   │   ├── __init__.py
+│   │   ├── session.py
+│   │   └── migrations/
+│   │       ├── 001_initial_schema.sql
+│   │       ├── 002_organization_permissions.sql
+│   │       ├── 003_leave_management_rules.sql
+│   │       ├── 004_hr_document_management.sql
+│   │       ├── 005_timesheets.sql
+│   │       ├── 006_ai_conversations.sql
+│   │       ├── 007_hr_policy_knowledge_base.sql
+│   │       ├── 008_foreign_key_indexes.sql
+│   │       └── 009_department_code_not_null.sql
+│   │
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── employee.py
+│   │   ├── user.py
+│   │   ├── department.py
+│   │   ├── role.py
+│   │   ├── permission.py
+│   │   ├── leave.py
+│   │   ├── leave_type.py
+│   │   ├── leave_balance.py
+│   │   ├── leave_transaction.py
+│   │   ├── document.py
+│   │   ├── timesheet.py
+│   │   ├── ai_conversation.py
+│   │   └── hr_policy.py
+│   │
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   ├── employee.py
+│   │   ├── department.py
+│   │   ├── user.py
+│   │   ├── role.py
+│   │   ├── leave.py
+│   │   ├── document.py
+│   │   ├── timesheet.py
+│   │   └── chat.py
+│   │
+│   ├── repositories/
+│   │   ├── __init__.py
+│   │   ├── employee_repository.py
+│   │   ├── user_repository.py
+│   │   ├── department_repository.py
+│   │   ├── role_repository.py
+│   │   ├── leave_repository.py
+│   │   ├── document_repository.py
+│   │   ├── timesheet_repository.py
+│   │   └── ai_repository.py
+│   │
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── auth_service.py
+│   │   ├── employee_service.py
+│   │   ├── department_service.py
+│   │   ├── leave_service.py
+│   │   ├── document_service.py
+│   │   ├── timesheet_service.py
+│   │   └── notification_service.py
+│   │
+│   └── ai/
+│       ├── __init__.py
+│       ├── gemini_client.py
+│       ├── prompts.py
+│       ├── tools.py
+│       ├── orchestrator.py
+│       │
+│       └── rag/
+│           ├── __init__.py
+│           ├── document_loader.py
+│           ├── text_chunker.py
+│           ├── embedding_service.py
+│           ├── vector_store.py
+│           └── retriever.py
+│
+├── Documents/
+│   ├── AI_Powered_HRMS_API_Specification.docx
+│   ├── AI_Powered_HRMS_Complete_Database_Data_Dictionary.docx
+│   ├── AI_Powered_HRMS_Requirements_Analysis_SRS.pdf
+│   └── AI_Powered_HRMS_System_Architecture_Workflow.docx
+│
+├── docs/
+│   ├── AI_Powered_HRMS_Project_Progress_Checklist.md
+│   ├── DATABASE_MIGRATION_GUIDE.md
+│   ├── HRMS_ENVIRONMENT_VERIFICATION.md
+│   ├── POSTGRESQL_COMMAND_REFERENCE.md
+│   └── current_schema_snapshot.sql
+│
+├── images/
+│   ├── ERD.png
+│   ├── HRMS_Final_ER_Diagram (1).png
+│   └── Workflow.jpg
+│
+├── tests/
+│   ├── __init__.py
+│   ├── conftest.py
+│   │
+│   ├── unit/
+│   │   ├── __init__.py
+│   │   ├── test_employee_service.py
+│   │   ├── test_leave_service.py
+│   │   └── test_auth_service.py
+│   │
+│   ├── integration/
+│   │   ├── __init__.py
+│   │   ├── test_database.py
+│   │   └── test_repositories.py
+│   │
+│   └── api/
+│       ├── __init__.py
+│       ├── test_auth.py
+│       ├── test_employees.py
+│       ├── test_leave.py
+│       └── test_chat.py
+│
+├── .env
+├── .env.example
+├── .gitignore
+├── requirements.txt
+├── README.md
+└── .git/
