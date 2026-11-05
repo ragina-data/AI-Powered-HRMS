@@ -36,3 +36,6 @@ desktop.ini
 # Temporary files
 *.tmp
 *.bak
+
+# Initial user credentials
+/private/
