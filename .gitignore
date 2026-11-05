@@ -37,5 +37,5 @@ desktop.ini
 *.tmp
 *.bak
 
-# Private employee credentials
+# Initial user credentials
 /private/
