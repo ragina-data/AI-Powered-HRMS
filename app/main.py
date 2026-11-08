@@ -1,23 +1,35 @@
+
 from fastapi import FastAPI
 
+from app.api.auth import router as auth_router
 
-app= FastAPI(
-    title="AI-Powered HRMS Virtual Assistant" ,
-    description="An AI-powered HRMS virtual assistant that provides personalized support and guidance to employees, helping them navigate HR processes and policies with ease.",
-    version="1.0.0"
+
+app = FastAPI(
+    title="AI-Powered HRMS Virtual Assistant",
+    description=(
+        "An AI-powered HRMS virtual assistant that provides "
+        "personalized support and guidance to employees, "
+        "helping them navigate HR processes and policies with ease."
+    ),
+    version="1.0.0",
 )
+
+# Register authentication router
+app.include_router(auth_router)
+
 
 @app.get("/")
 def home():
     return {
-        "project":"AI-Powered HRMS Virtual Assistant",
-        "status":"Running",
-        "message":"Welcome to the AI-Powered HRMS Virtual Assistant API. "
+        "project": "AI-Powered HRMS Virtual Assistant",
+        "status": "Running",
+        "message": "Welcome to the AI-Powered HRMS Virtual Assistant API.",
     }
+
 
 @app.get("/health")
 def health_check():
     return {
         "status": "healthy",
-        "service":"HRMS-API",
+        "service": "HRMS-API",
     }
