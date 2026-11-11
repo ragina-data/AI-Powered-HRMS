@@ -51,3 +51,9 @@ class User(Base):
         back_populates="user",
         cascade="all, delete",
     )
+
+    sessions = relationship(
+    "UserSession",
+    back_populates="user",
+    cascade="all, delete",
+    )
