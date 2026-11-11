@@ -32,3 +32,5 @@ from app.models.hr_policy_version import HRPolicyVersion
 from app.models.hr_policy_chunk import HRPolicyChunk
 
 from app.models.audit_log import AuditLog
+
+from app.models.user_session import UserSession
