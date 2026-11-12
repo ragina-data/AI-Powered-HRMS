@@ -80,3 +80,36 @@ def require_permission(*required_permissions: str):
         return current_user
 
     return permission_checker
+
+def user_has_permission(
+    db: Session,
+    user_id: int,
+    permission_code: str,
+) -> bool:
+    """
+    Check whether a user has a specific permission
+    through any of their assigned roles.
+    """
+
+    result = (
+        db.query(Permission.permission_id)
+        .join(
+            RolePermission,
+            Permission.permission_id == RolePermission.permission_id,
+        )
+        .join(
+            Role,
+            Role.role_id == RolePermission.role_id,
+        )
+        .join(
+            UserRole,
+            UserRole.role_id == Role.role_id,
+        )
+        .filter(
+            UserRole.user_id == user_id,
+            Permission.permission_code == permission_code,
+        )
+        .first()
+    )
+
+    return result is not None
