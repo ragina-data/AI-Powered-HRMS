@@ -57,3 +57,9 @@ class User(Base):
     back_populates="user",
     cascade="all, delete",
     )
+
+    employee = relationship(
+        "Employee",
+        back_populates="user",
+        uselist=False,
+    )

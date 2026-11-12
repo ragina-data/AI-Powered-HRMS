@@ -2,6 +2,8 @@
 from fastapi import FastAPI
 
 from app.api.auth import router as auth_router
+from app.api.employees import router as employee_router
+from app.api.users import router as user_router
 
 
 app = FastAPI(
@@ -16,6 +18,16 @@ app = FastAPI(
 
 # Register authentication router
 app.include_router(auth_router)
+# Register employee management router
+app.include_router(
+    employee_router,
+    prefix="/api/v1",
+)
+# Register user management router
+app.include_router(
+    user_router,
+    prefix="/api/v1",
+)
 
 
 @app.get("/")

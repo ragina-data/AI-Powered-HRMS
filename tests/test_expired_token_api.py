@@ -9,9 +9,10 @@ client = TestClient(app)
 
 
 def test_expired_token_is_rejected():
-    expired_token = create_access_token(
-        user_id=1,
-        expires_delta=timedelta(seconds=-1)
+    expired_token, _ = create_access_token(
+    user_id=1,
+    session_id=1,
+    expires_delta=timedelta(seconds=-1),
     )
 
     response = client.get(

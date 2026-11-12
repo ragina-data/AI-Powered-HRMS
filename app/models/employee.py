@@ -113,3 +113,21 @@ class Employee(Base):
         "Employee",
         back_populates="manager",
     )
+    user = relationship(
+        "User",
+        back_populates="employee",
+        uselist=False,
+    )
+    @property
+    def department_display(self) -> str | None:
+        """
+        Return the department name from the relationship.
+
+        Fall back to the legacy department column
+        for backward compatibility.
+        """
+
+        if self.department_info is not None:
+            return self.department_info.department_name
+
+        return self.department
