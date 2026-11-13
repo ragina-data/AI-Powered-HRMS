@@ -71,6 +71,13 @@ class LeaveBalance(Base):
         server_default=text("CURRENT_TIMESTAMP"),
     )
 
+    @property
+    def available_days(self):
+        """
+        Calculate remaining available leave days.
+        """
+        return self.entitlement_days - self.used_days
+
     employee = relationship("Employee")
 
     leave_type_info = relationship(
@@ -83,3 +90,10 @@ class LeaveBalance(Base):
         "LeaveTransaction",
         back_populates="leave_balance",
     )
+
+@property
+def available_days(self):
+    """
+    Calculate remaining available leave days.
+    """
+    return self.entitlement_days - self.used_days

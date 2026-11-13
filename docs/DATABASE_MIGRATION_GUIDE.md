@@ -99,7 +99,7 @@ Seeds permission definitions and role-permission mappings.
 **Execution:**
 
 ```cmd
-"C:\Program Files\PostgreSQL\17\bin\psql.exe" -h localhost -p 5432 -U postgres -d hrms_migration_test -v ON_ERROR_STOP=1 -f "C:\Data Science\Final Project\AI-Powered-HRMS\app\db\migrations\002_organization_permissions.sql"
+"C:\Program Files\PostgreSQL\17\bin\psql.exe" -h localhost -p 5432 -U postgres -d hrms_migration -v ON_ERROR_STOP=1 -f "C:\Data Science\Final Project\AI-Powered-HRMS\app\db\migrations\002_organization_permissions.sql"
 ```
 
 **Verification:**
@@ -254,7 +254,7 @@ Includes employee references, weekly timesheet periods, work entries, approval d
 **Execution:**
 
 ```cmd
-"C:\Program Files\PostgreSQL\17\bin\psql.exe" -h localhost -p 5432 -U postgres -d hrms_migration_test -v ON_ERROR_STOP=1 -f "C:\Data Science\Final Project\AI-Powered-HRMS\app\db\migrations\005_timesheets.sql"
+"C:\Program Files\PostgreSQL\17\bin\psql.exe" -h localhost -p 5432 -U postgres -d hrms_db -v ON_ERROR_STOP=1 -f "C:\Data Science\Final Project\AI-Powered-HRMS\app\db\migrations\005_timesheets.sql"
 ```
 
 **Verification:**

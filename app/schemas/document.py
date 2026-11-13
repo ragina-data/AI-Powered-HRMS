@@ -19,7 +19,19 @@ class DocumentRequestCreate(BaseModel):
         max_length=2000
     )
 
+# --------------------------------------------------
+# DOCUMENT TYPE RESPONSE
+# --------------------------------------------------
 
+class DocumentTypeResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    document_type_id: int
+    document_type_code: str
+    document_type_name: str
+    description: str | None
+    requires_hr_approval: bool
+    is_active: bool
 # --------------------------------------------------
 # DOCUMENT REQUEST RESPONSE
 # --------------------------------------------------
@@ -45,8 +57,14 @@ class DocumentRequestResponse(BaseModel):
 
 class DocumentProcessRequest(BaseModel):
     status: str = Field(
-        pattern="^(approved|rejected|completed)$"
-    )
+    pattern="^(approved|processing|rejected|completed)$",
+    description=(
+        "approved: HR approved the request. "
+        "processing: Document preparation is underway. "
+        "completed: Document has been issued. "
+        "rejected: HR rejected the request."
+    ),
+)
 
     remarks: str | None = Field(
         default=None,

@@ -1,5 +1,6 @@
 from sqlalchemy import (
     BigInteger,
+    Boolean,
     Column,
     Date,
     DateTime,
@@ -50,6 +51,11 @@ class LeaveRequest(Base):
     days_requested = Column(Numeric, nullable=False)
 
     reason = Column(Text, nullable=True)
+    medical_certificate_submitted = Column(
+        Boolean,
+        nullable=False,
+        server_default=text("false"),
+        )
 
     status = Column(
         String(20),
