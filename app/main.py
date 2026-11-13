@@ -6,6 +6,15 @@ from app.api.employees import router as employee_router
 from app.api.users import router as user_router
 from app.api.leaves import router as leave_router
 from app.api.documents import router as document_router
+from contextlib import asynccontextmanager
+
+from app.ai_tools.handlers.registration import register_all_handlers
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Register all implemented AI tool handlers once
+    register_all_handlers()
+
+    yield
 
 app = FastAPI(
     title="AI-Powered HRMS Virtual Assistant",
@@ -15,6 +24,7 @@ app = FastAPI(
         "helping them navigate HR processes and policies with ease."
     ),
     version="1.0.0",
+    lifespan=lifespan,
 )
 
 # Register authentication router
