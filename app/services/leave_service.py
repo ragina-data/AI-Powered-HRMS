@@ -311,6 +311,10 @@ def submit_leave_request(
         start_date=start_date,
         end_date=end_date,
     )
+    employee = validation["employee"]
+    leave_type = validation["leave_type"]
+    days_requested = validation["days_requested"]
+
     if (
         medical_certificate_submitted
         and leave_type.leave_type_code != "sick"
@@ -318,11 +322,7 @@ def submit_leave_request(
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Medical certificate submission applies only to sick leave",
-    )
-
-    employee = validation["employee"]
-    leave_type = validation["leave_type"]
-    days_requested = validation["days_requested"]
+        )
 
     try:
 
