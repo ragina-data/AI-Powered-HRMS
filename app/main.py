@@ -4,7 +4,8 @@ from fastapi import FastAPI
 from app.api.auth import router as auth_router
 from app.api.employees import router as employee_router
 from app.api.users import router as user_router
-
+from app.api.leaves import router as leave_router
+from app.api.documents import router as document_router
 
 app = FastAPI(
     title="AI-Powered HRMS Virtual Assistant",
@@ -28,7 +29,16 @@ app.include_router(
     user_router,
     prefix="/api/v1",
 )
-
+# Register Leave Management router
+app.include_router(
+    leave_router,
+    prefix="/api/v1",
+)
+# Register HR Document Management router
+app.include_router(
+    document_router,
+    prefix="/api/v1",
+)
 
 @app.get("/")
 def home():
