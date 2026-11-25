@@ -39,10 +39,12 @@ from app.schemas.timesheet import (
 )
 
 from app.schemas.ai_assistant import (
-    AIConversationCreate,
-    AIConversationResponse,
-    AIMessageCreate,
-    AIMessageResponse,
+    ConversationCreate,
+    ConversationResponse,
+    ChatRequest,
+    MessageResponse,
+    ChatResponse,
+    ConversationDetailResponse,
 )
 
 from app.schemas.audit import (

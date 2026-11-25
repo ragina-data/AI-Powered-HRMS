@@ -1,6 +1,7 @@
 from sqlalchemy import (
     BigInteger,
     Column,
+    Computed,
     Date,
     DateTime,
     ForeignKey,
@@ -114,7 +115,10 @@ class HRPolicyVersion(Base):
         server_default=text("CURRENT_TIMESTAMP"),
     )
 
-    policy = relationship("HRPolicy")
+    policy = relationship(
+        "HRPolicy",
+        back_populates="versions",
+    )
 
     approved_by = relationship(
         "User",
@@ -127,6 +131,6 @@ class HRPolicyVersion(Base):
     )
 
     chunks = relationship(
-    "HRPolicyChunk",
-    back_populates="policy_version",
-)
+        "HRPolicyChunk",
+        back_populates="policy_version",
+    )

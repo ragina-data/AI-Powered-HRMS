@@ -1,6 +1,7 @@
 from sqlalchemy import (
     BigInteger,
     Column,
+    Computed,
     DateTime,
     ForeignKey,
     Integer,
@@ -88,12 +89,18 @@ class HRPolicyChunk(Base):
         nullable=False,
         server_default=text("CURRENT_TIMESTAMP"),
     )
-
     search_vector = Column(
         TSVECTOR,
-        nullable=True,
+        Computed(
+            """
+            to_tsvector(
+                'english',
+                coalesce(section_heading, '') || ' ' || chunk_text
+            )
+            """,
+            persisted=True,
+        ),
     )
-
     policy_version = relationship(
         "HRPolicyVersion",
         back_populates="chunks",

@@ -310,7 +310,7 @@ GET_AUTHORIZED_LEAVE_TRANSACTIONS = ToolDefinition(
         "additionalProperties": False,
     },
     required_permissions=(
-        "employee.read_team",
+        "leave.approve_team",
         "leave.manage_all",
     ),
     category="leave",

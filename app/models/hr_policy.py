@@ -30,8 +30,8 @@ class HRPolicy(Base):
         String(250),
         nullable=False,
     )
-
-    policy_category = Column(
+    category = Column(
+        "policy_category",
         String(100),
         nullable=False,
     )
@@ -81,3 +81,7 @@ class HRPolicy(Base):
 
     department = relationship("Department")
     owner = relationship("User")
+    versions = relationship(
+        "HRPolicyVersion",
+        back_populates="policy",
+)

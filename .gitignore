@@ -39,3 +39,7 @@ desktop.ini
 
 # Private employee credentials
 /private/
+
+
+# Uploaded HR policy documents and files
+storage/

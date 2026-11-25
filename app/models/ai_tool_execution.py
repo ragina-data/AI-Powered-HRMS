@@ -64,7 +64,7 @@ class AIToolExecution(Base):
     )
 
     execution_status = Column(
-        String(20),
+        String(30),
         nullable=False,
         server_default=text("'started'"),
     )

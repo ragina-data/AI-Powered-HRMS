@@ -149,6 +149,7 @@ def verify_conversation_access(
 # PERMISSION ENFORCEMENT
 # ============================================================
 
+
 def verify_tool_permission(
     db: Session,
     current_user: User,
@@ -162,6 +163,11 @@ def verify_tool_permission(
     """
 
     definition = tool_registry.get_definition(tool_name)
+
+    if not definition.required_permissions:
+        raise ToolPermissionError(
+            "This tool has no configured permissions."
+        )
 
     has_permission = any(
         user_has_permission(

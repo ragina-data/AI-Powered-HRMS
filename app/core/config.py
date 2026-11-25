@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str
 
     GEMINI_API_KEY: str = ""
-    GEMINI_MODEL: str = ""
+    GEMINI_MODEL: str = "gemini-3.8-flash"
     GEMINI_EMBEDDING_MODEL: str = "gemini-embedding-001"
 
     SECRET_KEY: str

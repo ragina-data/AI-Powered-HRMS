@@ -7,6 +7,9 @@ from app.api.users import router as user_router
 from app.api.leaves import router as leave_router
 from app.api.documents import router as document_router
 from contextlib import asynccontextmanager
+from app.api.ai_assistant import router as ai_assistant_router
+from app.api.hr_policies import router as hr_policy_router
+
 
 from app.ai_tools.handlers.registration import register_all_handlers
 @asynccontextmanager
@@ -49,6 +52,17 @@ app.include_router(
     document_router,
     prefix="/api/v1",
 )
+# Register AI Assistant router
+app.include_router(
+    ai_assistant_router,
+    prefix="/api/v1",
+)
+# Register HR Policy Management router
+app.include_router(
+    hr_policy_router,
+    prefix="/api/v1",
+)
+
 
 @app.get("/")
 def home():
